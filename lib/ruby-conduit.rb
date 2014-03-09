@@ -22,21 +22,21 @@ class Conduit
 
     session = call 'conduit.connect', data
 
-    @connectionID = session['connectionID']
-    @sessionKey   = session['sessionKey']
+    @connection_id = session['connectionID']
+    @session_key   = session['sessionKey']
 
     true
   end
 
   def self.session
     {
-      'sessionKey'   => @sessionKey,
-      'connectionID' => @connectionID,
+      'sessionKey'   => @session_key,
+      'connectionID' => @connection_id,
     }
   end
 
   def self.connected?
-    @sessionKey && @connectionID
+    @session_key && @connection_id
   end
 
   def self.call(method, data = {})
