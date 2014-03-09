@@ -93,7 +93,9 @@ class Conduit
   end
 
   def self.config
-    JSON.parse(File.read('/Users/jobertabma/.arcrc'))
+    arcanist_config = File.expand_path '~/.arcrc'
+
+    JSON.parse File.read(arcanist_config)
   end
 
   def self.hash(auth_token, certificate)
