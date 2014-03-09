@@ -17,7 +17,7 @@ class Conduit
     data = {
       'authToken'     => token,
       'authSignature' => hash(token, certificate),
-      'user'          => credentials['user'],
+      'user'          => credentials['user']
     }
 
     session = call 'conduit.connect', data
@@ -31,7 +31,7 @@ class Conduit
   def self.session
     {
       'sessionKey'   => @session_key,
-      'connectionID' => @connection_id,
+      'connectionID' => @connection_id
     }
   end
 
