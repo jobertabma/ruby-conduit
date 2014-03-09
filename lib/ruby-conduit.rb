@@ -67,7 +67,7 @@ class Conduit
   private
 
   def self.static_http_headers
-    headers = {
+    {
       'User-Agent'   => user_agent,
       'Content-Type' => 'application/x-www-form-urlencoded'
     }
