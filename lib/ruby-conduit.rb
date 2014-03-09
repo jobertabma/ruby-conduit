@@ -12,11 +12,11 @@ class Conduit
 
   def self.connect!
     certificate = credentials['cert']
-    token       = Time.now.to_i
+    auth_token  = Time.now.to_i
 
     data = {
-      'authToken'     => token,
-      'authSignature' => hash(token, certificate),
+      'authToken'     => auth_token,
+      'authSignature' => hash(auth_token, certificate),
       'user'          => credentials['user']
     }
 
@@ -96,8 +96,8 @@ class Conduit
     JSON.parse(File.read('/Users/jobertabma/.arcrc'))
   end
 
-  def self.hash(token, certificate)
-    Digest::SHA1.hexdigest "#{token}#{certificate}"
+  def self.hash(auth_token, certificate)
+    Digest::SHA1.hexdigest "#{auth_token}#{certificate}"
   end
 
   def self.request_body(data = {})
