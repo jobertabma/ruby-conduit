@@ -28,13 +28,6 @@ class Conduit
     true
   end
 
-  def self.session
-    {
-      'sessionKey'   => @session_key,
-      'connectionID' => @connection_id
-    }
-  end
-
   def self.connected?
     @session_key && @connection_id
   end
@@ -54,6 +47,8 @@ class Conduit
     response['result']
   end
 
+  private
+
   def self.connection
     new_connection = Net::HTTP.new conduit_uri.host, conduit_uri.port
 
@@ -63,7 +58,12 @@ class Conduit
     new_connection
   end
 
-  private
+  def self.session
+    {
+      'sessionKey'   => @session_key,
+      'connectionID' => @connection_id
+    }
+  end
 
   def self.static_http_headers
     {
