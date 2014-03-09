@@ -54,7 +54,6 @@ class Conduit
     response['result']
   end
 
-
   def self.connection
     new_connection = Net::HTTP.new conduit_uri.host, conduit_uri.port
 
