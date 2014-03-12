@@ -17,11 +17,11 @@ module Conduit
   end
 end
 
-require_relative 'ruby-conduit/conduit/config'
-require_relative 'ruby-conduit/conduit/error'
-require_relative 'ruby-conduit/conduit/session'
-require_relative 'ruby-conduit/conduit/request'
-require_relative 'ruby-conduit/conduit/response'
+require_relative 'conduit/config'
+require_relative 'conduit/error'
+require_relative 'conduit/session'
+require_relative 'conduit/request'
+require_relative 'conduit/response'
 
 class Conduit::Test
   def self.connect!
